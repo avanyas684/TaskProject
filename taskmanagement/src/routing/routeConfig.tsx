@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 
 
@@ -7,6 +7,11 @@ export const routeConfig = [
     path: "/",
     component: <Login />,
   },
+  {
+    path: "/home",
+    component: <Home />,
+  },
+
  
 ];
 

@@ -1,0 +1,105 @@
+@import "../../scss/index.scss";
+
+.login-container {
+    color: $charcoal;
+    @include typography("medium", 32px);
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .left-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 50%;
+        justify-content: center;
+
+        .google-login-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            width: 42%;
+
+            .TaskBuddy_text {
+                color: #7B1984
+            }
+
+        }
+
+        .login-text {
+            color: $black;
+            @include typography("medium", 14px);
+        }
+
+        .firebase-container {
+            margin-top: 20px;
+            background-color: #292929;
+            height: 60px;
+            border-radius: 10px;
+            color: white;
+            width: 50%;
+            display: flex;
+            @include typography("medium", 20px);
+            cursor: pointer;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+
+    .right-container {
+        width: 50%;
+
+        .image-container {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; // Ensures circles don't extend outside the container
+
+            .circle-background {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border: 1px solid #7b1984;
+                //   background: #7b1984; // Big circle background color
+                border-radius: 50%; // Makes it a circle
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 0;
+
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    border: 1px solid #7b1984;
+                    // background: #7b1984; // Same color for smaller circles
+                    border-radius: 50%;
+                }
+
+                &::before {
+                    width: 80%; // Adjust size for the middle circle
+                    height: 80%;
+                    z-index: -1; // Keeps it behind the parent circle
+                }
+
+                &::after {
+                    width: 60%; // Adjust size for the smallest circle
+                    height: 60%;
+                    z-index: -2;
+                }
+            }
+
+            img {
+                position: relative;
+                z-index: 1; // Keeps the image above the circles
+                max-width: 80%; // Ensures the image fits well
+                max-height: 80%;
+                object-fit: contain;
+            }
+        }
+    }
+}
